@@ -20,7 +20,6 @@ public class ProductServiceImpl implements ProductService {
     @Autowired
     private ProductRespository productRespository;
 
-    @PreAuthorize("hasAuthority('READ_ALL_PRODUCTS')")
     @Override
     public Page<Product> findAll(Pageable pageable) {
         return productRespository.findAll(pageable);
