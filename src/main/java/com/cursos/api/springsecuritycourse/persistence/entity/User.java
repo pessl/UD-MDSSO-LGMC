@@ -38,7 +38,7 @@ public class User implements UserDetails {
                 })
                 .collect(Collectors.toList());*/
 
-        // YA NO SE USARÍA DE ESTA FORMA.
+        // YA NO SE USARÍA DE ESTA FORMA AL USAR hasAnyRole y/o hasRole.
         /*return role.getPermissions().stream()
                 .map(each -> each.name())
                 .map(each -> new SimpleGrantedAuthority(each))

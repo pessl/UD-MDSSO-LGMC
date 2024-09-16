@@ -1,4 +1,4 @@
--- CREACIÓN DE USUARIOS
+-- CREACIÓN DE USUARIOS CON "ROL_" AL INICIO
 --INSERT INTO "user" (username, name, password, role) VALUES ('lmarquez', 'luis márquez', '$2a$10$5qxQTBE7f7rOl3w5ZvlVVefSrNbfB2qd/ERP86stVrvLPYgMVABBy', 'ROLE_CUSTOMER');
 --INSERT INTO "user" (username, name, password, role) VALUES ('fperez', 'fulano pérez', '$2a$10$Nj9aNTQ9zMp0ypL9n94nfuDJXv1zof8vRpRKR6Jfw3ZGHtvXQkFSe', 'ROLE_ASSISTANT_ADMINISTRATOR');
 --INSERT INTO "user" (username, name, password, role) VALUES ('mhernandez', 'mengano hernández', '$2a$10$f/ksIjzprCXHYuNFzqFpcumJumotIm5RkgMhKePuZ1C1Y6Zs3lab6', 'ROLE_ADMINISTRATOR');

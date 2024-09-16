@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public enum Role {
-
+    //SE LES QUITO EL "ROL_" QUE TENIAN AL INICIO CADA ENUM.
     ADMINISTRATOR(Arrays.asList(
         RolePermission.READ_ALL_PRODUCTS,
         RolePermission.READ_ONE_PRODUCT,
