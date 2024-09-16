@@ -22,7 +22,7 @@ public class ProductController {
     private ProductService productService;
 
     //@PreAuthorize("hasAnyRole('ADMINISTRADOR','ASSISTANT_ADMINISTRATOR')")
-    @PreAuthorize("hasAuthority('READ_ALL_PRODUCTS')")
+    //@PreAuthorize("hasAuthority('READ_ALL_PRODUCTS')")
     @GetMapping
     public ResponseEntity<Page<Product>> findAll(Pageable pageable){
         Page<Product> productsPage = productService.findAll(pageable);
