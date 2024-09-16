@@ -29,7 +29,8 @@ public class AuthenticationController {
         return ResponseEntity.ok(rsp);
     }
 
-    @PreAuthorize("hasAnyRole('ADMINISTRADOR','ASSISTANT_ADMINISTRATOR','CUSTOMER')")
+    //@PreAuthorize("hasAnyRole('ADMINISTRADOR','ASSISTANT_ADMINISTRATOR','CUSTOMER')")
+    @PreAuthorize("hasAuthority('READ_MY_PROFILE')")
     @GetMapping("/profile")
     public ResponseEntity<User> findMyProfile(){
         User user = authenticationService.findLoggedInUser();

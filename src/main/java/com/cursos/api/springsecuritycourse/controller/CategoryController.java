@@ -21,7 +21,8 @@ public class CategoryController {
     @Autowired
     private CategoryService categoryService;
 
-    @PreAuthorize("hasAnyRole('ADMINISTRADOR','ASSISTANT_ADMINISTRATOR')")
+    //@PreAuthorize("hasAnyRole('ADMINISTRADOR','ASSISTANT_ADMINISTRATOR')")
+    @PreAuthorize("hasAuthority('READ_ALL_CATEGORIES')")
     @GetMapping
     public ResponseEntity<Page<Category>> findAll(Pageable pageable){
         Page<Category> categoriesPage = categoryService.findAll(pageable);
@@ -31,7 +32,8 @@ public class CategoryController {
         return ResponseEntity.notFound().build();
     }
 
-    @PreAuthorize("hasAnyRole('ADMINISTRADOR','ASSISTANT_ADMINISTRATOR')")
+    //@PreAuthorize("hasAnyRole('ADMINISTRADOR','ASSISTANT_ADMINISTRATOR')")
+    @PreAuthorize("hasAuthority('READ_ONE_CATEGORY')")
     @GetMapping("/{categoryId}")
     public ResponseEntity<Category> findOneById(@PathVariable Long categoryId){
         Optional<Category> category = categoryService.findOneById(categoryId);
@@ -41,21 +43,24 @@ public class CategoryController {
         return ResponseEntity.notFound().build();
     }
 
-    @PreAuthorize("hasRole('ADMINISTRADOR')")
+    //@PreAuthorize("hasRole('ADMINISTRADOR')")
+    @PreAuthorize("hasAuthority('CREATE_ONE_CATEGORY')")
     @PostMapping
     public ResponseEntity<Category> createOne(@RequestBody @Valid SaveCategory saveCategory){
         Category category = categoryService.createOne(saveCategory);
         return ResponseEntity.status(HttpStatus.CREATED).body(category);
     }
 
-    @PreAuthorize("hasAnyRole('ADMINISTRADOR','ASSISTANT_ADMINISTRATOR')")
+    //@PreAuthorize("hasAnyRole('ADMINISTRADOR','ASSISTANT_ADMINISTRATOR')")
+    @PreAuthorize("hasAuthority('UPDATE_ONE_CATEGORY')")
     @PutMapping("/{categoryId}")
     public ResponseEntity<Category> updateOneById(@PathVariable Long categoryId, @RequestBody @Valid SaveCategory saveCategory){
         Category category = categoryService.updateOneById(categoryId, saveCategory);
         return ResponseEntity.ok(category);
     }
 
-    @PreAuthorize("hasRole('ADMINISTRADOR')")
+    //@PreAuthorize("hasRole('ADMINISTRADOR')")
+    @PreAuthorize("hasAuthority('DISABLE_ONE_CATEGORY')")
     @PutMapping("/{categoryId}/disabled")
     public ResponseEntity<Category> disableOneById(@PathVariable Long categoryId){
         Category product = categoryService.disableOneById(categoryId);
